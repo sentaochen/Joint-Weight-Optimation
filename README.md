@@ -40,10 +40,10 @@ For the details of this work,  please refer to the paper below:
   author={Sentao Chen},  
   journal={Neural Networks},   
   title={Joint Weight Optimization for Partial Domain Adaptation via Kernel Statistical Distance Estimation},   
-  year={2024},   
-  volume = {180}, 
-  pages = {106739},
-  issn = {0893-6080},   
+  year={2024},      
+  volume = {180},      
+  pages = {106739},     
+  issn = {0893-6080},       
   doi = {https://doi.org/10.1016/j.neunet.2024.106739}     
   }
 
