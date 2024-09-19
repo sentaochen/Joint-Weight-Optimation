@@ -4,7 +4,7 @@
 
 This repository provides the Pytorch codes for the work "Joint Weight Optimization for Partial Domain Adaptation via Kernel Statistical Distance Estimation" published in Neural Networks, 2024. The video for introducing this work will soon be available at the Bilibili platform. Fig. 1 illustrates the main idea of this work. 
 
-Briefly speaking, this work develops a fundamental technique to estimate the statistical distance between the weighted source joint distribution and the target joint distribution from samples. The estimated statistical distance is expressed as a function of the source sample weights, such that the weights can be optimized to minimize the statistical distance and align joint distributions for the partial domain adaptation problem. 
+Briefly speaking, this work develops a fundamental technique to estimate the statistical distance between the weighted source joint distribution and the target joint distribution from samples. The estimated statistical distance is expressed as a function of the source sample weights, such that the weights can be optimized to minimize the statistical distance and align the joint distributions for the partial domain adaptation problem. 
 
 This repository provides two versions of Pytorch codes. One is with the shallow network model and the pre-extracted deep learning features. Users can run it with the Jupyter notebook "A Quick Demo for the JWO Algorithm.ipynb" and the folder "OfficeHome" (remember to unzip the datasets in the folder). The other is with the deep ResNet50 model and the raw images. See below for instructions on how to run the code.
 
