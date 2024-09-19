@@ -2,17 +2,39 @@
 
 <img src="JWO.png" width="80%">
 
-This repository provides the Pytorch code for the work "Joint Weight Optimization for Partial Domain Adaptation via Kernel Statistical Distance Estimation" published in Neural Networks, 2024. The main idea of the work is illustrated in Fig.1.
+This repository provides the Pytorch codes for the work "Joint Weight Optimization for Partial Domain Adaptation via Kernel Statistical Distance Estimation" published in Neural Networks, 2024. The video for introducing this work will soon be available at the Bilibili platform. Fig. 1 illustrates the main idea of this work. 
 
-For quick demonstration, in the code, the network model is a one-hidden-layer neural network, and the dataset for evaluating the MJD algorithm is the PIE dataset (see dataset description in the paper "Domain Generalization by Joint-Product Distribution Alignment" published in Pattern Recognition, 2022.)
+Briefly speaking, this work develops a fundamental technique to estimate the statistical distance between the weighted source joint distribution and the target joint distribution from samples. The estimated statistical distance is expressed as a function of the source sample weights, such that the weights can be optimized to minimize the statistical distance and align joint distributions for the partial domain adaptation problem. 
 
-Remember to unzip the datasets before running the demo code.
+This repository provides two versions of Pytorch codes. One is with the shallow network model and the pre-extracted deep learning features. Users can run it with the Jupyter notebook "A Quick Demo for the JWO Algorithm.ipynb" and the folder "OfficeHome" (remember to unzip the datasets in the folder). The other is with the deep ResNet50 model and the raw images. See below for instructions on how to run the code.
 
-<img src="Flow.png" width="80%">
+#### Dataset folder
+The folder structure required (e.g OfficeHome)
+- data
+  - OfficeHome
+    - list
+      - Art_25.txt
+      - Art.txt
+      - Clipart_25.txt
+      - Clipart.txt
+      - Product_25.txt
+      - Product.txt
+      - RealWorld_25.txt
+      - RealWorld.txt
+    - Art
+    - Clipart
+    - Product
+    - RealWorld
 
-In the work, we study the Multi-Source Domain Adaptation (MSDA) problem. By introducing the concepts of mixture joint distribution and Pearson $\chi^{2}$ divergence, we develop theory and algorithm for the MSDA problem. (1) We first develop a theory showing that a neural network's target loss is upper bounded by both its source mixture loss and the Pearson $\chi^{2}$ divergence between the source mixture joint distribution and the target joint distribution. (2) We then propose an algorithm that optimizes both the mixing weights and the neural network to minimize the estimated source mixture loss and the estimated Pearson $\chi^{2}$ divergence (see Fig.2).
+##### How to run
 
-For the details of this partial domain adaptation work,  please refer to the paper below: 
+```bash
+python demo.py  --gpu 0   --root_dir ./data/OfficeHome --dataset OfficeHome --distance Chi2  --source Art --target Clipart --seed 0 | tee PDA-OfficeHome_A2C_Chi2_seed0.log
+
+python demo.py  --gpu 0   --root_dir ./data/OfficeHome --dataset OfficeHome --distance L2  --source Art --target Clipart --seed 0 | tee PDA-OfficeHome_A2C_L2_seed0.log
+```
+
+For the details of this work,  please refer to the paper below: 
 
 @article{Chen2024Joint,  
   author={Sentao Chen},  
@@ -25,5 +47,4 @@ For the details of this partial domain adaptation work,  please refer to the pap
   doi = {https://doi.org/10.1016/j.neunet.2024.106739}     
   }
 
-
-
+The Pytorch code is currently maintained by Lisheng Wen. If you have any questions regarding the code, please contact Lisheng Wen via the email lishengwenmail@126.com.
